@@ -1,1 +1,1 @@
-# Arisglobal_Trining
+# Arisglobal_Training
