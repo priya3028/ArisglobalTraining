@@ -1,90 +1,43 @@
-package training.three;
-import java.util.*;
-import java.math.*;
 
-interface Polygon{
-	void circle();
-	void rectangle();
-	void triangle();
-	void square();
-	void hexagon();
-}
-
-class PolygonInterface implements Polygon {
-	
-	Scanner scanner=new Scanner(System.in);
-
+public interface Polygon {
+	double pi=3.14;
+	 public double circle(double x);
+	int rectangle(int x, int y);
+	double triangle(double a, double b);
+	int square(int s);
+	double hexagon(double b);
 	public static void main(String[] args) {
-		
-		
-		PolygonInterface pi=new PolygonInterface();
-		pi.circle();
-		pi.rectangle();
-		pi.triangle();
-		pi.square();
-		pi.hexagon();
-
-	}
-
-	public void circle() {
-		
-		
-		System.out.println("Enter circle radius");
-		int radius=scanner.nextInt();
-		
-		System.out.println("Area of circle:"+Math.PI*radius*radius);
+		Areas a1= new Areas();
+		a1.circle(10);
+		a1.rectangle(10,20);
+		a1.triangle(3,5);
+		a1.square(4);
+		a1.hexagon(10);
 		
 	}
-
-	
-	public void rectangle() {
-		
-		
-		System.out.println("Enter rectangle length");
-		int length=scanner.nextInt();
-		
-		System.out.println("Enter rectangle breadth");
-		int breadth=scanner.nextInt();
-		
-		System.out.println("Area of rectangle:"+length*breadth);
-		
+}
+class Areas implements Polygon{
+	public double circle(double a) {
+		System.out.println("area of circle:" +pi*a*a);
+		return(pi*a*a);
+	}
+	public int rectangle(int x, int y) {
+		System.out.println("rectangle area:"+x*y);
+		return(x*y);		
+	}
+	public double triangle(double a, double b) {
+		System.out.println("area of triangle:"+a*b/2);
+		return(a*b/2);
 		
 	}
-
-	
-	public void triangle() {
-		 
-		
-		System.out.println("Enter triangle base");
-		int b=scanner.nextInt();
-		
-		System.out.println("Enter triangle height");
-		int h=scanner.nextInt();
-		
-		System.out.println("Area of triangle:"+0.5*b*h);
+	public int square(int s) {
+		System.out.println("area of square:" +s*s);
+		return(s*s);
 		
 	}
-
-	
-	public void square() {
-		
-		
-		System.out.println("Enter side of square");
-		int a=scanner.nextInt();
-		
-		System.out.println("Area of square:"+a*a);
-		
+	public double hexagon(double b) {
+		double area=((3*Math.pow(3, 1/3)*Math.pow(b, 2)))/2;
+		System.out.println("area of hexagon:" +area);
+		return area;
 	}
-
-	
-	public void hexagon() {
-		
-		
-		System.out.println("Enter side of heaxgon");
-		int a=scanner.nextInt();
-		
-		System.out.println("Area of hexagon:"+(3*Math.sqrt(3)*a*a)/2);
-		
-	}
-
 }
